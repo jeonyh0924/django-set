@@ -1,5 +1,3 @@
-# utils/auto_schema.py
-
 from drf_spectacular.openapi import AutoSchema
 
 
