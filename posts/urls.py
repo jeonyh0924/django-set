@@ -8,12 +8,12 @@ from posts.views import PostViewSet, UserViewSet
 app_name = "posts"
 
 
-router = routers.DefaultRouter()
+router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'users', UserViewSet)
 
 # post에 대한 중첩된 라우터 생성
 posts_router = nested_routers.NestedSimpleRouter(router, r'users', lookup='user')
-posts_router.register(r'posts', PostViewSet, basename='user-posts')
+posts_router.register(r'posts', PostViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
